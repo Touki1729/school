@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
-<title>時間割</title>
+<link rel="manifest" href="manifest.json"><title>時間割</title>
 <style>
 table {
 border-collapse: collapse;
@@ -13,6 +13,9 @@ padding: 0.5em;
 }
 </style>
 <script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('./service-worker.js');
+}
 function parse(text) {
 return text.split('\n').map(line => line.split(','));
 }
